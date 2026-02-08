@@ -17,7 +17,8 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:agenticDebugger.setBreakpoints"
+    "onCommand:agenticDebugger.setBreakpoints",
+    "onStartupFinished"
   ],
   "main": "./dist/extension.js",
   "contributes": {
@@ -49,6 +50,12 @@
           "default": false,
           "description": "Clear existing breakpoints before setting new ones",
           "order": 1
+        },
+        "agenticDebugger.bridgePort": {
+          "type": "number",
+          "default": 7070,
+          "description": "Port for the bridge HTTP server used by MCP clients",
+          "order": 2
         }
       }
     }
