@@ -1,0 +1,9 @@
+src/**
+node_modules/**
+.vscode/**
+.github/**
+webpack.config.js
+tsconfig.json
+CLAUDE.md
+.gitignore
+*.vsix
