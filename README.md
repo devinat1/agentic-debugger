@@ -20,8 +20,26 @@ VS Code Debugger (DAP)
 ## Installation
 
 1. Install the extension from [Open VSX](https://open-vsx.org/extension/devinat1/agentic-debugger)
-2. Install the [Debugger MCP Server](https://github.com/devinat1/debugger-mcp-server) (`npx debugger-mcp-server`)
-3. Add the MCP server to your client configuration (Claude Desktop, Claude Code, Cursor, etc.)
+2. Add the MCP server to your client configuration:
+
+**Claude Code:**
+
+```bash
+claude mcp add debugger --scope user -- npx debugger-mcp-server
+```
+
+**Claude Desktop, Cursor, or other MCP clients:**
+
+```json
+{
+  "mcpServers": {
+    "debugger": {
+      "command": "npx",
+      "args": ["debugger-mcp-server"]
+    }
+  }
+}
+```
 
 ## Available MCP Tools
 
