@@ -2,7 +2,11 @@
   "name": "agentic-debugger",
   "displayName": "Agentic Debugger",
   "description": "VS Code extension bridge that exposes debugging capabilities to AI agents via the Debugger MCP Server",
+<<<<<<< HEAD
   "version": "1.0.0",
+=======
+  "version": "0.1.2",
+>>>>>>> cd263fc1ea40e86bba6a000a80b67c6dc82e7f5c
   "publisher": "devinat1",
   "license": "MIT",
   "repository": {
