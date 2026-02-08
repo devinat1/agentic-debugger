@@ -1,7 +1,7 @@
 {
   "name": "agentic-debugger",
   "displayName": "Agentic Debugger",
-  "description": "AI-powered breakpoint placement using Claude Agent SDK",
+  "description": "VS Code extension bridge that exposes debugging capabilities to AI agents via the Debugger MCP Server",
   "version": "0.1.0",
   "publisher": "devinat1",
   "license": "MIT",
@@ -17,45 +17,17 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:agenticDebugger.setBreakpoints",
     "onStartupFinished"
   ],
   "main": "./dist/extension.js",
   "contributes": {
-    "commands": [
-      {
-        "command": "agenticDebugger.setBreakpoints",
-        "title": "Set Breakpoints for Feature",
-        "category": "Agentic Debugger"
-      }
-    ],
-    "keybindings": [
-      {
-        "command": "agenticDebugger.setBreakpoints",
-        "key": "ctrl+shift+d",
-        "mac": "cmd+shift+d"
-      }
-    ],
     "configuration": {
       "title": "Agentic Debugger",
       "properties": {
-        "agenticDebugger.anthropicApiKey": {
-          "type": "string",
-          "default": "",
-          "description": "Your Anthropic API key for Claude. Get one at https://console.anthropic.com/",
-          "order": 0
-        },
-        "agenticDebugger.clearExistingBreakpoints": {
-          "type": "boolean",
-          "default": false,
-          "description": "Clear existing breakpoints before setting new ones",
-          "order": 1
-        },
         "agenticDebugger.bridgePort": {
           "type": "number",
           "default": 7070,
-          "description": "Port for the bridge HTTP server used by MCP clients",
-          "order": 2
+          "description": "Port for the bridge HTTP server used by MCP clients"
         }
       }
     }
@@ -65,9 +37,6 @@
     "compile": "webpack --mode production",
     "watch": "webpack --mode development --watch",
     "lint": "eslint src --ext ts"
-  },
-  "dependencies": {
-    "@anthropic-ai/claude-agent-sdk": "^0.1.0"
   },
   "devDependencies": {
     "@types/node": "^20.10.0",

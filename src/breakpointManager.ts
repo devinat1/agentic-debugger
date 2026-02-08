@@ -1,6 +1,6 @@
 import * as vscode from "vscode";
 import * as path from "path";
-import type { CodeLocation, SetBreakpointsParams } from "./types";
+import type { SetBreakpointsParams } from "./types";
 
 export const setBreakpointsFromLocations = async (params: SetBreakpointsParams): Promise<{
   successCount: number;
@@ -57,27 +57,4 @@ const checkFileExists = async (params: { uri: vscode.Uri }): Promise<boolean> =>
   } catch {
     return false;
   }
-};
-
-export const openFileAtLocation = async (params: {
-  location: CodeLocation;
-  workspacePath: string;
-}): Promise<void> => {
-  const { location, workspacePath } = params;
-
-  const absolutePath = path.isAbsolute(location.filePath)
-    ? location.filePath
-    : path.join(workspacePath, location.filePath);
-
-  const uri = vscode.Uri.file(absolutePath);
-  const position = new vscode.Position(location.lineNumber - 1, 0);
-
-  const document = await vscode.workspace.openTextDocument(uri);
-  const editor = await vscode.window.showTextDocument(document);
-
-  editor.selection = new vscode.Selection(position, position);
-  editor.revealRange(
-    new vscode.Range(position, position),
-    vscode.TextEditorRevealType.InCenter
-  );
 };

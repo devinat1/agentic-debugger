@@ -16,7 +16,6 @@ import {
   handleGetCallStack,
   handleEvaluateExpression,
 } from "../handlers/debugSessionHandlers";
-import { handleAnalyzeCode } from "../handlers/analyzeCodeHandler";
 
 interface RouteHandler {
   method: "GET" | "POST";
@@ -28,7 +27,6 @@ const routes: Record<string, RouteHandler> = {
   "/api/setBreakpoints": { method: "POST", handler: handleSetBreakpoints },
   "/api/removeBreakpoints": { method: "POST", handler: handleRemoveBreakpoints },
   "/api/listBreakpoints": { method: "POST", handler: handleListBreakpoints },
-  "/api/analyzeCode": { method: "POST", handler: handleAnalyzeCode },
   "/api/startDebugSession": { method: "POST", handler: handleStartDebugSession },
   "/api/stopDebugSession": { method: "POST", handler: handleStopDebugSession },
   "/api/stepOver": { method: "POST", handler: handleStepOver },
